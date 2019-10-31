@@ -85,6 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: "Rae's New Article",
+    date: 'Oct 31, 2019',
+    firstParagraph: `Plunder main sheet lad ho hornswaggle Sea Legs scallywag prow Blimey bowsprit. Schooner Cat o'nine tails hulk aft fore lee brigantine swing the lead overhaul league. Tender wench draught bilged on her anchor take a caulk Yellow Jack galleon schooner scourge of the seven seas tackle.`,
+
+    secondParagraph: `Grapple blow the man down gibbet dead men tell no tales squiffy jib strike colors schooner yawl mizzen. Jolly boat yardarm Nelsons folly ahoy spyglass bilge water barkadeer fore tackle brig. Topmast Jack Tar keelhaul reef sails swab jolly boat Sea Legs lookout aft capstan. `,
+
+    thirdParagraph: `Jib deadlights blow the man down run a shot across the bow splice the main brace Jolly Roger holystone long boat heave to come about. Bowsprit gangway topsail fluke trysail ho pressgang smartly draught bilge water. Chantey draft gun black spot deadlights keel lookout lugger tender Sail ho.`
   }
 ];
 
@@ -128,14 +137,14 @@ function createComponent (title, date, firstParagraph, secondParagraph, thirdPar
   const paraThree = document.createElement('p');
   const expandButton = document.createElement('span');
 
-  articleTitle.appendChild(article);
-  articleDate.appendChild(articleTitle);
-  paraOne.appendChild(articleDate);
-  paraTwo.appendChild(paraOne);
-  paraThree.appendChild(paraTwo);
-  expandButton.appendChild(paraThree);
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(paraOne);
+  article.appendChild(paraTwo);
+  article.appendChild(paraThree);
+  article.appendChild(expandButton);
 
-  article.classList.add('article');
+  article.classList.add('article', 'article-open');
   articleDate.classList.add('date')
   expandButton.classList.add('expandButton');
 
@@ -147,7 +156,7 @@ function createComponent (title, date, firstParagraph, secondParagraph, thirdPar
   expandButton.textContent = '\u25bc';
 
   expandButton.addEventListener('click', () => {
-    expandButton.classList.toggle('article-open');
+    article.classList.toggle('article-open');
   })
 
 
