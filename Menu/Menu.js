@@ -36,44 +36,42 @@ let menuItems = [
 
 const menuButton = document.querySelector('.menu-button');
 
-menuItems.forEach(data => {
-  menuButton.appendChild(createMenu(data.students, data.faculty, data.whatsNew, data.techTrends, data.music, data.logOut))
-})
+const header = document.querySelector('.header');
 
-function createMenu (students, faculty, whatsNew, techTrends, music, logOut) {
+header.append(createMenu(menuItems));
+
+
+function createMenu (menutext) {
+
   const menu = document.createElement('div');
+
   const menuList = document.createElement('ul');
-  const itemOne = document.createElement('li');
-  const itemTwo = document.createElement('li');
-  const itemThree = document.createElement('li');
-  const itemFour = document.createElement('li');
-  const itemFive = document.createElement('li');
-  const itemSix = document.createElement('li');
 
-//  menu.append(itemOne);
-//  menu.append(itemTwo);
-//  menu.append(itemThree);
-//  menu.append(itemFour);
-//  menu.append(itemFive);
-//  menu.append(itemSix);
+  menutext.forEach(data => {
+    const item = document.createElement('li');
+    item.textContent = data;
+    menuList.append(item);
+  })
+
+
+
+  menu.append(menuList);
+  
   
 
-  menu.classList.add('menu', 'menu-open');
-  // menuList.classList.add('menu-open')
+  menu.classList.add('menu');
+  // menuList.classList.add('menu--open');
   
 
-  itemOne.textContent = students;
-  itemTwo.textContent = faculty;
-  itemThree.textContent = whatsNew;
-  itemFour.textContent = techTrends;
-  itemFive.textContent = music;
-  itemSix.textContent = logOut;
 
   menuButton.addEventListener('click', () => {
-    menu.classList.toggle('menu-open');
+    menu.classList.toggle('menu--open');
+    console.log('hey');
   })
 
 
 return menu;
 }
+
+
 
